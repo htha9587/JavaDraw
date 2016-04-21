@@ -21,15 +21,6 @@ public class ShapeFrame extends JFrame
 		this.baseController = baseController;
 		basePanel = new DrawingPanel(baseController);
 		setUpFrame();
-		
-		
-		private DrawingController baseController()
-		{
-			return null;
-		}
-		
-		
-		
 	}
 
 	private void setUpFrame() 
@@ -46,8 +37,5 @@ public class ShapeFrame extends JFrame
 	{
 		return baseController;
 	}
-	
-	
-	
 	
 }
