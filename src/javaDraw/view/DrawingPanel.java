@@ -49,6 +49,10 @@ public class DrawingPanel extends JPanel
 		drawPolygonButton = new JButton("Draw Polygon");
 		rectangleList = new ArrayList<Rectangle>();
 		shapePanel = new ShapePanel();
+		baseLayout.putConstraint(SpringLayout.NORTH, shapePanel, 10, SpringLayout.SOUTH, Exit);
+		baseLayout.putConstraint(SpringLayout.WEST, shapePanel, 50, SpringLayout.EAST, drawTriangleButton);
+		baseLayout.putConstraint(SpringLayout.SOUTH, shapePanel, -10, SpringLayout.SOUTH, this);
+		baseLayout.putConstraint(SpringLayout.EAST, shapePanel, -10, SpringLayout.EAST, this);
 		
 	
 		
@@ -79,32 +83,17 @@ public class DrawingPanel extends JPanel
 		this.add(drawPolygonButton);
 		this.add(Exit);
 		
-		JPanel shapePanel_1 = new JPanel();
-		baseLayout.putConstraint(SpringLayout.NORTH, shapePanel_1, 6, SpringLayout.SOUTH, Exit);
-		baseLayout.putConstraint(SpringLayout.WEST, shapePanel_1, 6, SpringLayout.EAST, drawTriangleButton);
-		baseLayout.putConstraint(SpringLayout.SOUTH, shapePanel_1, -14, SpringLayout.SOUTH, this);
-		baseLayout.putConstraint(SpringLayout.EAST, shapePanel_1, 10, SpringLayout.EAST, this);
-		add(shapePanel_1);
+//		JPanel shapePanel_1 = new JPanel();//This was the problem it all referred to shapePanel_1 not the shapePanel
+		
+		
 		Title = new JLabel("JavaDraw");
 		add(Title);
 		Title.setFont(new Font("Xingkai SC", Font.BOLD | Font.ITALIC, 66));
 		JLabel Info = new JLabel("Adjust window size to see shape Panel!");
-		baseLayout.putConstraint(SpringLayout.NORTH, Info, 0, SpringLayout.NORTH, shapePanel_1);
 		baseLayout.putConstraint(SpringLayout.EAST, Info, 0, SpringLayout.EAST, Title);
 		Info.setFont(new Font("Zapf Dingbats", Font.BOLD, 13));
 		add(Info);
 	}
-	
-	
-	
-
-
-
-	private void add(ShapePanel shapePanel2) {
-		// TODO Auto-generated method stub
-		
-	}
-
 
 
 	/**
@@ -156,6 +145,7 @@ public class DrawingPanel extends JPanel
 			public void actionPerformed(ActionEvent click)
 			{
 				shapePanel.addRectangle();
+				repaint();
 			}
 		});
 		

@@ -63,7 +63,7 @@ public class ShapePanel extends JPanel
 		int width = (int) (Math.random() * 100);
 		int height = (int) (Math.random() * 100);
 		
-		ellipseList.add(new Ellipse2D (xPosition, yPosition, width, height));
+		ellipseList.add(new Ellipse2D.Double(xPosition, yPosition, width, height));
 		repaint();
 	}
 	
@@ -74,7 +74,7 @@ public class ShapePanel extends JPanel
 		int width = (int) (Math.random() * 100);
 		int height = (int) (Math.random() * 100);
 		
-		circleList.add(new Ellipse2D (xPosition, yPosition, width, height));
+		circleList.add(new Ellipse2D.Double(xPosition, yPosition, width, height));
 		repaint();
 	}
 	
@@ -85,7 +85,7 @@ public class ShapePanel extends JPanel
 		int width = (int) (Math.random() * 100);
 		int height = (int) (Math.random() * 100);
 		
-		triangleList.add(new Polygon(xPosition, yPosition, width, height));
+		//triangleList.add(new Polygon(xPosition, yPosition, width, height));
 		repaint();
 	}
 	
@@ -96,7 +96,7 @@ public class ShapePanel extends JPanel
 		int width = (int) (Math.random() * 100);
 		int height = (int) (Math.random() * 100);
 		
-		polygonList.add(new Polygon(xPosition, yPosition, width, height));
+		//polygonList.add(new Polygon(xPosition, yPosition, width, height));
 		repaint();
 	}
 	
@@ -109,8 +109,13 @@ public class ShapePanel extends JPanel
 		mainGraphics.setColor(Color.GREEN);
 		mainGraphics.drawRect(50, 70, 200, 20);
 		mainGraphics.drawRect(50, 70, 50, 100);
-		mainGraphics.drawPolygon(50, 70, 200, 20);
-		mainGraphics.drawPolygon(50, 70, 200, 20);
+		//mainGraphics.drawPolygon(40, 50, 80);
+		//mainGraphics.drawPolygon(40, 50, 80);
+		Ellipse2D ellipse = new Ellipse2D.Float();
+		ellipse.setFrame(50, 70, 200, 20);
+		Ellipse2D circle = new Ellipse2D.Float();
+		circle.setFrame(50, 70, 200, 20);
+		
 		
 		for(Rectangle current: rectangleList)
 		{
